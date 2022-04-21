@@ -1,0 +1,208 @@
+@import 'media-queries';
+
+html.body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("../img/BG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+//   main {
+//     width: 100vw;
+//     height: 200vw;
+//     z-index: 99;
+//     position: absolute;
+//     justify-content: center;
+//     text-align: center;
+//     pointer-events: none;
+//     /* font-size: 5vh; */
+
+//   }
+
+//   section {
+//     position: fixed;
+//     min-height: 100vh;
+//     padding: 20px;
+//     /* font-size: 4vh; */
+//   }
+@mixin btn1 {
+    padding: 4px 20px;
+    color: #edf0f1;
+    border: 1px solid #edf0f1;
+    background-color: rgba($color: #000000, $alpha: 0);
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+@mixin btn2 {
+    padding: 5px 20px;
+    color: #edf0f1;
+    background: linear-gradient(to left, #9A50DF, #3B69CA);
+    border: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.container {
+    // border: 1px solid rgb(0, 195, 255);
+    width: 100%;
+    height: 200vw;
+    z-index: 99;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    @media screen and (max-width: 600px){
+        font-size: 10px;
+        .right{
+            // width: 250px;
+            min-width: 300px;
+        }
+    }
+
+
+    .wrapper {
+        // border: 1px solid rgb(255, 126, 126);
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        position: fixed;
+        min-height: 90vh;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    // .left {
+    //     outline: solid rgb(229, 255, 0);
+    //     width: 65%;
+
+    //     img {
+    //         width: 60%;
+
+    //     }
+    // }
+
+    .right {
+        // outline: solid rgb(255, 0, 0);
+        width: 35%;
+        min-width: 30em;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logbox {
+        background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.15);
+        color: #edf0f1;
+        border-radius: 15px;
+        width: 90%;
+        height: 65%;
+        padding: 45px 65px;
+        text-align: center;
+
+
+        img {
+            width: 80px;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 3em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 90%;
+            height: 38px;
+            border-radius: 15px;
+            border: 3px solid #fff;
+            background: rgba($color: #000000, $alpha: 0);
+            margin: 5px 0;
+            padding: 0 15px;
+            color: #fff;
+            font-size: 1.3em;
+
+            &:hover {
+                border: 3px solid rgb(175, 175, 175);
+
+            }
+
+        }
+
+        .forget {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 35px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .login {
+            @include btn2;
+            width: 100%;
+            font-size: 1.4em;
+            font-weight: 700;
+            border-radius: 50px;
+
+            &:hover {
+                background: linear-gradient(to left, #a657f0, #4477e4);
+                // animation: login 1s ease 1;
+            }
+
+        }
+
+        .login_goole {
+            @include btn1;
+            width: 100%;
+            font-size: 1.4em;
+            font-weight: 500;
+            border-radius: 50px;
+
+            &:hover {
+                background-color: #fff;
+                color: rgba($color: #000000, $alpha: 01);
+            }
+        }
+
+        span {
+            // color: #00d9ff;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+
+    }
+
+
+}

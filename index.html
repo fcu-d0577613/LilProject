@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+
+  <title>LCY STUDIO</title>
+  <link rel="stylesheet" href="./style/styles.css" />
+</head>
+
+<body>
+  <!-- Navbar Section -->
+  <header>
+    <img class="logo" src="./img/logo.png" alt="" />
+
+    <div class="navbar_bars" >
+      <i class="fas fa-bars " onclick="sidebar_open()"></i>
+    </div>
+
+    <nav>
+      <ul class="nav_link">
+        <li><a href="#">首頁</a></li>
+        <li><a href="#news">最新消息</a></li>
+        <li><a href="#aerobic">有氧課程</a></li>
+        <li><a href="#trainner">私人教練</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="log_btn">
+      <button class="btn_regis"><a href="./logup.html">註冊</a></button>
+      <button class="btn_login"><a href="./login.html">登入</a></button>
+    </div>
+  </header>
+
+  <!-- sidebar -->
+  <div id="mySidebar" class="sidebar"   >
+    <i class="fa-solid fa-xmark" onclick="sidebar_close()"></i>
+    <a href="#" class="sidebar_news">最新消息</a>
+    <a href="#" class="sidebar_news">有氧課程</a>
+    <a href="#" class="sidebar_news">私人教練</a>
+    <a href="#" class="sidelogin">登入</a>
+  </div> 
+ 
+
+
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero_container">
+      <div class="hero_left">
+        <h1>HEALTH</h1>
+        <h1>POWER</h1>
+        <h1>HAPPINESS</h1>
+        <h5>
+          LCY is a clean, flat, pixel perfect and modern WordPress Theme
+          suitable for any type of Sport, Gym, Fitness Center, Health Clubs.
+        </h5>
+        <button class="btn_reserve">立即預約</button>
+        <button class="btn_more">探索更多</button>
+      </div>
+      <div class="hero_right">
+        <img src="" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" class="news trainner">
+    <div class="news_container trainner_container">
+      <div  class="left slider-nav">
+        <div>
+          <img src="./img/snow.png" alt="" />
+        </div>
+        <div>
+          <img src="./img/1006.png" alt="" />
+        </div>
+        <div>
+          <img src="./img/1008.png" alt="" />
+        </div>
+      </div>
+
+      <div class="right slider-for">
+        <div>
+          <h1>聖誕尋寶趣</h1>
+          <h4>日期:2022/12/1 - 2022/12/25</h4>
+          <hr />
+          <p>
+            一年一度聖誕尋寶活動來囉，體育館內藏了
+            許多寶物，領取寶物至一樓服務台領取，即
+            可或的精美禮物，最大獎為半年健身房會員喔!
+          </p>
+          <button class="news_reserve">查看更多</button>
+        </div>
+
+        <div>
+          <h1>健身新手</h1>
+          <h4>日期:2022/12/1 - 2022/12/25</h4>
+          <hr />
+          <p>
+            一年一度聖誕尋寶活動來囉，體育館內藏了
+            許多寶物，領取寶物至一樓服務台領取，即
+            可或的精美禮物，最大獎為半年健身房會員喔!
+          </p>
+          <button class="news_reserve">查看更多</button>
+        </div>
+
+        <div>
+          <h1>有氧套票</h1>
+          <h4>日期:2022/12/1 - 2022/12/25</h4>
+          <hr />
+          <p>
+            一年一度聖誕尋寶活動來囉，體育館內藏了
+            許多寶物，領取寶物至一樓服務台領取，即
+            可或的精美禮物，最大獎為半年健身房會員喔!
+          </p>
+          <button class="news_reserve">查看更多</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Aerobic class -->
+  <section id="aerobic">
+    <div class=" aerobic_container">
+      <div class="left slider slider-nav">
+        <div>
+          <img src="./img/aerobic1.jpg" alt="" />
+        </div>
+        <div>
+          <img src="./img/aerobic2.jpg" alt="" />
+        </div>
+        <div>
+          <img src="./img/aerobic3.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="right slider slider-for">
+        <div>
+          <h1>有氧課程</h1>
+          <hr />
+          <p>
+            有氧課程是在運動過程中需要依靠氧氣代謝來燃燒脂肪、
+            消耗熱量的運動，可以減少脂肪、消耗熱量，並且有效促進心肺功能，
+            LCY有氧課程包含Zumba、階梯以及Radical系列等熱門課程，
+            絕對能滿足您想要爆汗燃脂的需求！
+          </p>
+          <button class="reserve">立即預約</button>
+        </div>
+        <div>
+          <h1>BOXING</h1>
+          <hr />
+          <p>
+            有氧課程是在運動過程中需要依靠氧氣代謝來燃燒脂肪、
+            消耗熱量的運動，可以減少脂肪、消耗熱量，並且有效促進心肺功能，
+            LCY有氧課程包含Zumba、階梯以及Radical系列等熱門課程，
+            絕對能滿足您想要爆汗燃脂的需求！
+          </p>
+          <button class="reserve">立即預約</button>
+        </div>
+        <div>
+          <h1>TRX</h1>
+          <hr />
+          <p>
+            有氧課程是在運動過程中需要依靠氧氣代謝來燃燒脂肪、
+            消耗熱量的運動，可以減少脂肪、消耗熱量，並且有效促進心肺功能，
+            LCY有氧課程包含Zumba、階梯以及Radical系列等熱門課程，
+            絕對能滿足您想要爆汗燃脂的需求！
+          </p>
+          <button class="reserve">立即預約</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Privacy trainner -->
+  <section id="trainner" class="trainner">
+    <div class="trainner_container">
+      <div class="left slider slider-nav">
+        <div>
+          <img src="./img/coach1.png" alt="" />
+        </div>
+        <div>
+          <img src="./img/coach2.png" alt="" />
+        </div>
+        <div>
+          <img src="./img/coach3.png" alt="" />
+        </div>
+      </div>
+
+      <div class="right slider slider-for">
+        <div>
+          <h1>Jimmy Lin</h1>
+          <h4>體適能教練</h4>
+          <hr />
+
+          <h5>專業證照</h5>
+          <pre>
+中華民國羽球協會A級教練
+NASM-CES 美國國家運動醫學學院 運動矯正專家
+ACE-CPT 美國運動委員會 認證私人教練
+HFPA 國際科學阻力訓練認證
+中華民國健身運動協會 體適能健身C級指導員
+KBC Lv1 國際壺鈴證照
+FEA-FLC整合減脂技能認證
+               </pre>
+          <h5>專長</h5>
+          <pre>
+肌力訓練
+體態雕塑
+羽球訓練
+羽球體能訓練
+            </pre>
+          <button class="reserve">立即預約</button>
+        </div>
+
+        <div>
+          <h1>popo</h1>
+          <h4>體適能教練</h4>
+          <hr />
+
+          <h5>專業證照</h5>
+          <pre>
+中華民國羽球協會A級教練
+NASM-CES 美國國家運動醫學學院 運動矯正專家
+ACE-CPT 美國運動委員會 認證私人教練
+HFPA 國際科學阻力訓練認證 
+中華民國健身運動協會 體適能健身C級指導員
+KBC Lv1 國際壺鈴證照
+FEA-FLC整合減脂技能認證
+               </pre>
+          <h5>專長</h5>
+          <pre>
+肌力訓練
+體態雕塑
+羽球訓練
+羽球體能訓練
+               </pre>
+          <button class="reserve">立即預約</button>
+        </div>
+
+        <div>
+          <h1>Elly</h1>
+          <h4>體適能教練</h4>
+          <hr />
+
+          <h5>專業證照</h5>
+          <pre>
+中華民國羽球協會A級教練
+NASM-CES 美國國家運動醫學學院 運動矯正專家
+ACE-CPT 美國運動委員會 認證私人教練
+HFPA 國際科學阻力訓練認證
+中華民國健身運動協會 體適能健身C級指導員
+KBC Lv1 國際壺鈴證照
+FEA-FLC整合減脂技能認證
+               </pre>
+          <h5>專長</h5>
+          <pre>
+肌力訓練
+體態雕塑
+羽球訓練
+羽球體能訓練
+          </pre>
+          <button class="reserve">立即預約</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer_1">
+      <h4>聯絡我們</h4>
+      <h4>隱私政策</h4>
+      <h4>聯絡我們</h4>
+    </div>
+
+    <div class="footer_2">
+      <img src="./img/logo.png" alt="" />
+    </div>
+
+    <div class="footer_3">
+      <img src="./img/gitjhub.png" alt="" />
+      <img src="./img/insta.jpg" alt="" />
+      <img src="./img/meta.png" alt="" />
+    </div>
+  </footer>
+  <h6 class="copyright">© Shawn LCY . All Rights Reserved</h6>
+
+  
+
+
+
+  <!-- jquery -->
+<script>
+  var numSlick = 0;
+  $('.slider-for').each( function() {
+    numSlick++;
+    $(this).addClass( 'slider-' + numSlick ).slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: '.slider-nav.slider-' + numSlick
+    });
+  });
+
+  numSlick = 0;
+  $('.slider-nav').each( function() {
+    numSlick++;
+    $(this).addClass( 'slider-' + numSlick ).slick({
+      vertical: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      asNavFor: '.slider-for.slider-' + numSlick,
+      arrow: false,
+      focusOnSelect: true,
+    });
+  });
+
+  function sidebar_open() {
+    document.getElementById("mySidebar").style.right = "0";
+    document.getElementById("mySidebar").style.display = "flex";
+  }
+
+  function sidebar_close() {
+    document.getElementById("mySidebar").style.right = "-100%";
+  }
+
+
+    // $('.slider-nav').slick({
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   asNavFor: '.slider-for',
+    //   dots: true,
+    //   focusOnSelect: true,
+    // });
+    
+    // $('.slider-for').slick({
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   arrows: false,
+    //   fade: true,
+    //   asNavFor: '.slider-nav',
+    // });
+    
+</script>
+
+
+</body>
+
+</html>

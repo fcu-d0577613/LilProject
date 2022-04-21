@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+
+            <div class="left">
+                <!-- <img src="./img/aerobic1.jpg" alt=""> -->
+            </div>
+
+            <div class="right">
+                <div class="logbox">
+                    <img src="./img/logo.png" alt="">
+                    <h1>登入</h1>
+                    <input type="text" placeholder="電子信箱"><br>
+                    <input type="text" placeholder="密碼">
+                    <p class="forget">忘記密碼?</p>
+                    <button class="login">登入</button>
+                    <p class="oror">或</p>
+                    <button class="login_goole">透過GOOGLE 帳戶繼續操作</button>
+                    <p>繼續使用代表你同意 Pinterest 的 <span>《服務條款》</span>，並確認你已詳閱我們的 <span>《隱私權政策》</span></p>
+                    <p>您是新用戶嗎? <span>建立帳戶</span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="js/three.js/build/three.js"></script>
+    <script src="js/three.js/build/three.min.js"></script>
+    <!-- <script src="js/three.js/examples/js/libs/stats.min.js"></script> -->
+    <script type="module" src="js/three.js/src/helpers/AxesHelper.js"></script>
+    <script type="text/javascript" src="./node_modules/dat.gui/build/dat.gui.js"></script>
+    <script src="js/three.js/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="js/three.js/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/three.js/examples/js/libs/stats.min.js"></script>
+
+    <script type="module">
+        const scene = new THREE.Scene();
+
+        const gridHelper = new THREE.GridHelper(10, 10, 0xaec6cf, 0xaec6cf);
+        scene.add(gridHelper);
+
+        const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+        );
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // const geometry = new THREE.BoxGeometry();
+        // const material = new THREE.MeshBasicMaterial({
+        //   color: 0x00ff00,
+        //   wireframe: true,
+        // });
+
+        // const cube = new THREE.Mesh(geometry, material);
+        // cube.position.set(0, 0.5, -10);
+        // scene.add(cube);
+        const loader = new THREE.TextureLoader();
+        loader.load('./img/BG.png', function (texture) {
+            scene.background = texture;
+        });
+
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+        const textureLoader = new THREE.TextureLoader();
+        const texture = textureLoader.load('./img/original.jpg');
+        const material = new THREE.MeshBasicMaterial({ map: texture });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        const geometry1 = new THREE.TorusGeometry(1.2, 0.05, 2, 100);
+        const textureLoader1 = new THREE.TextureLoader();
+        const texture1 = textureLoader.load('./img/circle.png');
+        const material1 = new THREE.MeshBasicMaterial({ map: texture1 });
+        const torus = new THREE.Mesh(geometry1, material1);
+        scene.add(torus);
+        const geometry2 = new THREE.TorusGeometry(1.5, 0.05, 2, 100);
+        const textureLoader2 = new THREE.TextureLoader();
+        const texture2 = textureLoader.load('./img/circle.png');
+        const material2 = new THREE.MeshBasicMaterial({ map: texture2 });
+        const torus2 = new THREE.Mesh(geometry2, material2);
+        scene.add(torus2);
+
+        window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            render();
+        }
+
+        // function loadModel() {
+        //   var loader = new THREE.GLTFLoader();
+        //   loader.load('./animated_floating/scene.gltf', function (gltf) {
+        //     gltf.scene.scale.set(0.75, 0.75, 0.75);
+        //     gltf.scene.traverse(function (object) {
+        //       if (object.isMesh) object.castShadow = true;
+        //     });
+        //     // let mixer = new THREE.AnimationMixer(gltf.scene);
+        //     // mixer.clipAction(gltf.animations[0]).play();
+        //     scene.add(gltf.scene);
+        //   });
+        // // }
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 4);
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = 2048;
+        directionalLight.shadow.mapSize.height = 2048;
+        directionalLight.position.set(20, 20, 20);
+        scene.add(directionalLight);
+
+        /* Liner Interpolation
+         * lerp(min, max, ratio)
+         * eg,
+         * lerp(20, 60, .5)) = 40
+         * lerp(-20, 60, .5)) = 20
+         * lerp(20, 60, .75)) = 50
+         * lerp(-20, -10, .1)) = -.19
+         */
+        function lerp(x, y, a) {
+            return (1 - a) * x + a * y;
+        }
+
+        // Used to fit the lerps to start and end at specific scrolling percentages
+        function scalePercent(start, end) {
+            return (scrollPercent - start) / (end - start);
+        }
+
+        const animationScripts = [];
+
+        //add an animation that flashes the cube through 100 percent of scroll
+        // flashlight
+        // animationScripts.push({
+        //   start: 0,
+        //   end: 101,
+        //   func: () => {
+        //     let g = material.color.g;
+        //     g -= 0.05;
+        //     if (g <= 0) {
+        //       g = 1.0;
+        //     }
+        //     material.color.g = g;
+        //   },
+        // });
+
+        //add an animation that moves the cube through first 40 percent of scroll
+        animationScripts.push({
+            start: 0,
+            end: 40,
+            func: () => {
+                camera.lookAt(cube.position);
+                camera.position.set(0, 1.5, 3);
+                cube.position.z = lerp(-10, 0, scalePercent(0, 40));
+                torus.position.z = lerp(-10, 0, scalePercent(0, 40));
+                torus2.position.z = lerp(-10, 0, scalePercent(0, 40));
+                // scene.children[1].position = [-10, 0, 0];
+                //console.log(cube.position.z)
+            },
+        });
+
+        //add an animation that rotates the cube between 40-60 percent of scroll
+        animationScripts.push({
+            start: 40,
+            end: 60,
+            func: () => {
+                camera.lookAt(cube.position);
+                camera.position.set(0, 1, 2);
+                // cube.rotation.z = lerp(0, Math.PI, scalePercent(40, 60));
+                //console.log(cube.rotation.z)
+            },
+        });
+
+        //add an animation that moves the camera between 60-80 percent of scroll
+        animationScripts.push({
+            start: 60,
+            end: 80,
+            func: () => {
+                camera.position.x = lerp(0, 5, scalePercent(60, 80));
+                camera.position.y = lerp(1, 5, scalePercent(60, 80));
+                camera.lookAt(cube.position);
+                //console.log(camera.position.x + " " + camera.position.y)
+            },
+        });
+
+        //add an animation that auto rotates the cube from 80 percent of scroll
+        animationScripts.push({
+            start: 80,
+            end: 101,
+            func: () => {
+                //auto rotate
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+            },
+        });
+
+        function playScrollAnimations() {
+            animationScripts.forEach((a) => {
+                if (scrollPercent >= a.start && scrollPercent < a.end) {
+                    a.func();
+                }
+            });
+        }
+
+        let scrollPercent = 0;
+
+        document.body.onscroll = () => {
+            //calculate the current scroll progress as a percentage
+            scrollPercent =
+                ((document.documentElement.scrollTop || document.body.scrollTop) /
+                    ((document.documentElement.scrollHeight ||
+                        document.body.scrollHeight) -
+                        document.documentElement.clientHeight)) *
+                100;
+            document.getElementById('scrollProgress').innerText =
+                'Scroll Progress : ' + scrollPercent.toFixed(2);
+        };
+
+        const stats = Stats();
+        document.body.appendChild(stats.dom);
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            playScrollAnimations();
+            render();
+            // if ( mixer ) mixer.update( clock.getDelta() );
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            torus.rotation.x += 0.008;
+            torus.rotation.y += 0.005;
+            torus2.rotation.x += 0.006;
+            torus2.rotation.y += 0.0013;
+
+            // stats.update();
+        }
+
+        function render() {
+            renderer.render(scene, camera);
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        animate();
+    </script>
+</body>
+
+</html>
