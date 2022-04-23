@@ -1,3 +1,79 @@
-window.onload = function {
-  var arr = [{ width: 120, top: 11, left: 87, opacity: 20, zIndex: 2 }, { // 2 width:120, top:11, left:237, opacity:40, zIndex:3 }, { // 3 width:144, top:0, left:387, opacity:100, zIndex:4 }, { // 4 width:120, top:11, left:561, opacity:40, zIndex:3 }, { //5 width:120, top:11, left:711, opacity:20, zIndex:2 } ]; //0.獲取元素 var feedbackslide = document.getElementById("feedbackslide"); var feedbackliArr = feedbackslide.getElementsByTagName("li"); var feedbackarrow = feedbackslide.children[1]; var arrowChildren = feedbackarrow.children; var arrowleft=5; //設置一個開閉原則變量，點擊以後修改這個值。 var flag = true; move; //3.把兩側按鈕綁定事件。(調用同一個方法，只有一個參數，true為正向旋轉，false為反向旋轉) arrowChildren[0].onclick = function { if(flag){ flag = false; move(false); } arrowleft++; console.log("left+++",arrowleft) if(arrowleft==1){ document.getElementById("feedstudent").innerText="小嶽嶽2"; }else if(arrowleft==2){ document.getElementById("feedstudent").innerText="張三峰1"; }else if(arrowleft==3){ document.getElementById("feedstudent").innerText="林動5"; }else if(arrowleft==4){ document.getElementById("feedstudent").innerText="令狐沖4"; }else if(arrowleft==5){ document.getElementById("feedstudent").innerText="歐陽常斌3"; arrowleft=0; }else{ document.getElementById("feedstudent").innerText="小嶽嶽2"; arrowleft=1; } } arrowChildren[1].onclick = function { if(flag){ flag = false; move(true); } arrowleft--; console.log("right---",arrowleft) if(arrowleft==1){ document.getElementById("feedstudent").innerText="小嶽嶽2"; }else if(arrowleft==2){ document.getElementById("feedstudent").innerText="張三峰1"; }else if(arrowleft==3){ document.getElementById("feedstudent").innerText="林動5"; }else if(arrowleft==4){ document.getElementById("feedstudent").innerText="令狐沖4"; }else{ document.getElementById("feedstudent").innerText="歐陽常斌3"; arrowleft=5; } } //4.書寫函數。 function move(bool){ //判斷：如果等於undefined,那麼就不執行這兩個if語句 if(bool === true || bool === false){ if(bool){ arr.unshift(arr.pop); }else{ arr.push(arr.shift); } } //在次為頁面上的所有li賦值屬性，利用緩動框架 for(var i=0;i<feedbackliArr.length;i++){ animate(feedbackliArr[i],arr[i], function { flag = true; }); } } }
+
+
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
+camera.position.set(0, 15, 50);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // antialias 反鋸齒
+renderer.setSize(innerWidth, innerHeight); 
+renderer.setPixelRatio(window.devicePixelRatio); //將像素比率設定跟螢幕的像素比率一樣 <就是比較清晰啦>
+renderer.toneMapping = THREE.ACESFilmicToneMapping;//降低對比 避免白色過曝 且保留細節
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.physicallyCorrectLights = true;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFsoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+
+const sunlight = new THREE.DirectionalLight(new THREE.Color("#FFFFFF"), 3.5);
+sunlight.position.set(10, 20, 10);
+sunlight.castShadow = true;
+sunlight.shadow.mapSize.width = 512;
+sunlight.shadow.mapSize.height = 512;
+sunlight.shadow.camera.near = 0.5;
+sunlight.shadow.camera.far = 100;
+sunlight.shadow.camera.left = -10;
+sunlight.shadow.camera.bottom = -10;
+sunlight.shadow.camera.top = 10;
+sunlight.shadow.camera.rigth = 10;
+scene.add(sunlight);
+
+
+
+let pmrem = new THREE.PMREMGenerator(renderer);
+let envmapTexture = new THREE.RGBELoader().load('../img/half earth.hdr');
+let envMap = pmrem.fromEquirectangular(envmapTexture);
+
+const loader = new THREE.TextureLoader();
+   const bump = loader.load('../img/earthbump.jpg');
+   const map = loader.load('../img/earthmap.jpg');
+   const spec = loader.load('../img/earthspec.jpg');
+
+const earth = new THREE.Mesh(
+    new THREE.SphereGeometry(10, 70, 70),
+    new THREE.MeshPhysicalMaterial({
+        map: map,
+        roughnessMap: spec,
+        bumpMap: bump,
+        bumpScale: 0.65,
+        envMap,
+        envMapIntensity: 1,
+        sheen: 1,
+        sheenRoughness: 0.75,
+        sheenColor: new THREE.Color("#4a1b87").convertSRGBToLinear(),
+        clearcoat: 0.5,
+
+    })
+);
+earth.receiveShadow = true;
+scene.add(earth);
+
+
+
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(0,0,0);
+controls.dampingFactor = 0.05;
+controls.enableDamping = true;
+
+
+
+function animate(){
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+}
+animate();
 
