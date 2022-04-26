@@ -20,7 +20,13 @@ body {
     // max-height: 100%;
     scroll-behavior: smooth;
 }
-
+canvas {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    z-index: -1;
+    // color: #120518;
+  }
 .slick-dots li button:before {
     font-family: 'slick';
     font-size: 6px;
@@ -182,7 +188,7 @@ header {
 }
 
 .sidebar {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: absolute;
     padding: 150px 0;

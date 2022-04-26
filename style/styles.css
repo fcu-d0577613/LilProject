@@ -17,6 +17,13 @@ body {
   scroll-behavior: smooth;
 }
 
+canvas {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  z-index: -1;
+}
+
 .slick-dots li button:before {
   font-family: 'slick';
   font-size: 6px;
@@ -159,9 +166,7 @@ header button {
 }
 
 .sidebar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
