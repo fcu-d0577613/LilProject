@@ -18,9 +18,9 @@
 
 
         const loader = new THREE.TextureLoader();
-        const height = loader.load('./threejs-webpack-starter-master/static/height.png')
-        const texture = loader.load('./threejs-webpack-starter-master/static/texture.jpg')
-        const alpha = loader.load('./threejs-webpack-starter-master/static/alpha.png')
+        const height = loader.load('./lab/threejs-webpack-starter-master/static/height.png')
+        const texture = loader.load('./lab/threejs-webpack-starter-master/static/texture.jpg')
+        const alpha = loader.load('./lab/threejs-webpack-starter-master/static/alpha.png')
                 
         // loader.load('./img/BG.png', function (texture) {
         //     scene.background = texture;
