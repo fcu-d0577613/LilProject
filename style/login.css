@@ -171,4 +171,101 @@ canvas {
 .container .logbox span:hover {
   text-decoration: underline;
 }
+
+.container .logupbox {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #edf0f1;
+  border-radius: 15px;
+  width: 90%;
+  height: 85%;
+  padding: 45px 65px;
+  text-align: center;
+}
+
+.container .logupbox img {
+  width: 80px;
+}
+
+.container .logupbox h1 {
+  text-align: left;
+  font-size: 3em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.container .logupbox input {
+  width: 90%;
+  height: 38px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  background: rgba(0, 0, 0, 0);
+  margin: 5px 0;
+  padding: 0 15px;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+.container .logupbox input:hover {
+  border: 3px solid #afafaf;
+}
+
+.container .logupbox .forget {
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.container .logupbox .forget:hover {
+  text-decoration: underline;
+}
+
+.container .logupbox .login {
+  padding: 5px 20px;
+  color: #edf0f1;
+  background: -webkit-gradient(linear, right top, left top, from(#9A50DF), to(#3B69CA));
+  background: linear-gradient(to left, #9A50DF, #3B69CA);
+  border: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 700;
+  border-radius: 50px;
+}
+
+.container .logupbox .login:hover {
+  background: -webkit-gradient(linear, right top, left top, from(#a657f0), to(#4477e4));
+  background: linear-gradient(to left, #a657f0, #4477e4);
+}
+
+.container .logupbox .login_goole {
+  padding: 4px 20px;
+  color: #edf0f1;
+  border: 1px solid #edf0f1;
+  background-color: rgba(0, 0, 0, 0);
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 500;
+  border-radius: 50px;
+}
+
+.container .logupbox .login_goole:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.container .logupbox span {
+  cursor: pointer;
+}
+
+.container .logupbox span:hover {
+  text-decoration: underline;
+}
 /*# sourceMappingURL=login.css.map */

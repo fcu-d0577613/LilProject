@@ -203,5 +203,92 @@ canvas {
 
     }
 
+    .logupbox{
+        background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.15);
+        color: #edf0f1;
+        border-radius: 15px;
+        width: 90%;
+        height: 85%;
+        padding: 45px 65px;
+        text-align: center;
+
+
+        img {
+            width: 80px;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 3em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 90%;
+            height: 38px;
+            border-radius: 15px;
+            border: 3px solid #fff;
+            background: rgba($color: #000000, $alpha: 0);
+            margin: 5px 0;
+            padding: 0 15px;
+            color: #fff;
+            font-size: 1.3em;
+
+            &:hover {
+                border: 3px solid rgb(175, 175, 175);
+
+            }
+
+        }
+
+        .forget {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 35px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .login {
+            @include btn2;
+            width: 100%;
+            font-size: 1.4em;
+            font-weight: 700;
+            border-radius: 50px;
+
+            &:hover {
+                background: linear-gradient(to left, #a657f0, #4477e4);
+                // animation: login 1s ease 1;
+            }
+
+        }
+
+        .login_goole {
+            @include btn1;
+            width: 100%;
+            font-size: 1.4em;
+            font-weight: 500;
+            border-radius: 50px;
+
+            &:hover {
+                background-color: #fff;
+                color: rgba($color: #000000, $alpha: 01);
+            }
+        }
+
+        span {
+            // color: #00d9ff;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+
 
 }
